@@ -87,7 +87,7 @@ $(function() {
 		</div>').insertBefore(this);
 	});
 
-	// function to add an occupier to the occupier list
+	// function to add a junior occupier to the occupier list
 	$('#add-teen-occupier').click(function() {
 		var count = $('#teen-occupier-list .occupier').length + 1;
 		$('<div class="occupier grid-row" id="teen-occupier'+count+'"> \
@@ -123,6 +123,42 @@ $(function() {
 			<div class="column-one-quarter"> \
 				<label class="form-label" for="teen-occupier'+count+'-relationship">Relationship to you</label> \
 				<input class="form-control" id="teen-occupier'+count+'-relationship" type="text" name="teen-occupier'+count+'-relationship"> \
+			</div> \
+		</div>').insertBefore(this);
+	});
+
+	// function to add an rental occupier to the occupier list
+	$('#add-rental-occupier').click(function() {
+		var count = $('#rental-occupier-list .occupier').length + 1;
+		$('<div class="occupier grid-row" id="rental-occupier'+count+'"> \
+			<div class="column-one-quarter"> \
+				<label class="form-label" for="rental-occupier'+count+'-title">Title</label> \
+				<select class="form-control" name="rental-occupier'+count+'-title" id="rental-occupier'+count+'-title"> \
+					<option value="">Select an Item</option> \
+					<option value="Mr">Mr</option> \
+					<option value="Mrs">Mrs</option> \
+					<option value="Ms">Ms</option> \
+					<option value="Miss">Miss</option> \
+					<option value="Colonel">Colonel</option> \
+					<option value="Councillor">Councillor</option> \
+					<option value="Dr">Dr</option> \
+					<option value="General">General</option> \
+					<option value="Professor">Professor</option> \
+					<option value="Reverend">Reverend</option> \
+					<option value="Sir">Sir</option> \
+					<option value="Baroness">Baroness</option> \
+					<option value="Lord">Lord</option> \
+					<option value="Lady">Lady</option> \
+					<option value="Wing Commander">Wing Commander</option> \
+				</select> \
+			</div> \
+			<div class="column-one-quarter"> \
+				<label class="form-label" for="rental-occupier'+count+'-first-name">First name</label> \
+				<input class="form-control" id="rental-occupier'+count+'-first-name" type="text" name="rental-occupier'+count+'-first-name"> \
+			</div> \
+			<div class="column-one-quarter"> \
+				<label class="form-label" for="rental-occupier'+count+'-last-name">Last name</label> \
+				<input class="form-control" id="rental-occupier'+count+'-last-name" type="text" name="rental-occupier'+count+'-last-name"> \
 			</div> \
 		</div>').insertBefore(this);
 	});

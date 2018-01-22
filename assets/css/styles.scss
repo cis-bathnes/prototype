@@ -3,6 +3,7 @@
 	margin: 0 auto;
 }
 
+
 /* header */
 #global-header {
 	background-color: #fff;
@@ -160,5 +161,21 @@
 @media (min-width: 960px) {
 	.header-commercial__marque {
 		right: 0;
+	}
+}
+
+// Ocuppier list
+
+.occupier-list {
+
+}
+
+.occupier{
+	margin-bottom: 20px;
+	.form-label{
+		font-size: 16px;
+	}
+	.form-control{
+		width: 100%;
 	}
 }

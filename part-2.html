@@ -63,30 +63,68 @@
 		<article id="content">
 			<div class="grid-row">
 				<div class="column-full">
-					<h1 class="heading-xlarge">Moving home</h1>
-					<p class="lede">To ensure our Council Tax records are accurate we need to know:</p>
-					<ul class="list list-bullet">
-						<li>If you or your tenants are moving in, out or within the Council area</li>
-						<li>If you have bought a property in the Council area to rent or keep as a second home</li>
-					</ul>
-					<p>You can do this online:</p>
-					<a class="button button-start" href="part-1.html" role="button">Start now</a>
+					<h1 class="form-title heading-large">
+						<span class="section-progress">Question 2 of 7</span> Contact details
+					</h1>
+					<p class="lede">Please tell us your name, telephone number and email address.</p>
 				</div>
-			</div>
-			<div class="section section--border-top">
-				<div class="grid-row">
-					<div class="column-two-thirds">
-						<h2 class="heading-medium">Student households</h2>
-						<p>You can apply for a Council Tax exemption or discount online:</p>
-						<p><a class="button" href="#" role="button">Apply for student exemption</a></p>
-						<p>Moving out of Bath and North East Somerset? Please let us know online:</p>
-						<p><a class="button" href="#" role="button">Student leaving B&amp;NES</a></p>
-					</div>
-					<div class="column-one-third">
-						<h2 class="heading-medium">Related</h2>
-						<p><a href="#">Register to vote at your new address</a></p>
-						<p><a href="#">Check the Council Tax charge of your new address</a></p>
-					</div>
+				<div class="column-full">
+					<form action="part-3.html">
+						<div class="form-group">
+							<label class="form-label" id="title" for="title">Title</label>
+							<select class="form-control" name="title" id="title" required>
+								<option value="">Select an Item</option>
+								<option value="Mr">Mr</option>
+								<option value="Mrs">Mrs</option>
+								<option value="Ms">Ms</option>
+								<option value="Miss">Miss</option>
+								<option value="Colonel">Colonel</option>
+								<option value="Councillor">Councillor</option>
+								<option value="Dr">Dr</option>
+								<option value="General">General</option>
+								<option value="Professor">Professor</option>
+								<option value="Reverend">Reverend</option>
+								<option value="Sir">Sir</option>
+								<option value="Baroness">Baroness</option>
+								<option value="Lord">Lord</option>
+								<option value="Lady">Lady</option>
+								<option value="Wing Commander">Wing Commander</option>
+							</select>
+						</div>
+		                <div class="form-group">
+		                	<label class="form-label" id="first-name" for="first-name">First name</label>
+							<input class="form-control" name="first-name" type="text" id="first-name" required>
+						</div>
+		    			<div class="form-group">
+		    				<label class="form-label" id="last-name" for="last-name">Last name</label>
+		    				<input class="form-control" name="last-name" type="text" id="last-name" required>
+		    			</div>
+		    			<div class="form-group">
+		    				<label class="form-label" id="telephone" for="telephone">Telephone</label>
+		    				<input class="form-control" name="telephone" type="text" id="telephone" required>
+		    			</div>
+		    			<div class="form-group">
+		    				<label class="form-label" id="email-address" for="email-address">Email address</label>
+		    				<input class="form-control" name="email-address" type="email" id="email-address" required>
+		    			</div>
+		    			<div class="form-group">
+		    				<p>Are you:</p>
+							<div class="multiple-choice">
+								<input id="radio-1" type="radio" name="about-you" value="person" required>
+								<label for="radio-1">The person moving</label>
+							</div>
+							<div class="multiple-choice">
+								<input id="radio-2" type="radio" name="about-you" value="contact" required>
+								<label for="radio-2">A contact for the person moving</label>
+							</div>
+							<p class="form-block">or</p>
+							<div class="multiple-choice">
+								<input id="radio-3" type="radio" name="about-you" value="letting-agent" required>
+								<label for="radio-3">A letting agent</label>
+							</div>
+						</div>
+		    			<button type="submit" class="button">Continue</button>
+		    		</form>
 				</div>
 			</div>
 		</article>

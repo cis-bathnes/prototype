@@ -51,7 +51,6 @@ gulp.task('copy-index-html', function() {
 	return gulp.src('./*.html')
 		.pipe(gulp.dest('./public'))
 		.pipe(livereload());
-		console.log('friee');
 });
 
 gulp.task('livereload', function (){

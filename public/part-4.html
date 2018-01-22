@@ -63,30 +63,20 @@
 		<article id="content">
 			<div class="grid-row">
 				<div class="column-full">
-					<h1 class="heading-xlarge">Moving home</h1>
-					<p class="lede">To ensure our Council Tax records are accurate we need to know:</p>
-					<ul class="list list-bullet">
-						<li>If you or your tenants are moving in, out or within the Council area</li>
-						<li>If you have bought a property in the Council area to rent or keep as a second home</li>
-					</ul>
-					<p>You can do this online:</p>
-					<a class="button button-start" href="part-1.html" role="button">Start now</a>
-				</div>
-			</div>
-			<div class="section section--border-top">
-				<div class="grid-row">
-					<div class="column-two-thirds">
-						<h2 class="heading-medium">Student households</h2>
-						<p>You can apply for a Council Tax exemption or discount online:</p>
-						<p><a class="button" href="#" role="button">Apply for student exemption</a></p>
-						<p>Moving out of Bath and North East Somerset? Please let us know online:</p>
-						<p><a class="button" href="#" role="button">Student leaving B&amp;NES</a></p>
-					</div>
-					<div class="column-one-third">
-						<h2 class="heading-medium">Related</h2>
-						<p><a href="#">Register to vote at your new address</a></p>
-						<p><a href="#">Check the Council Tax charge of your new address</a></p>
-					</div>
+					<h1 class="form-title heading-large">
+						<span class="section-progress">Question 3 of 7</span> Address you are moving to
+					</h1>
+					<p class="lede">Please tell us the address of the place you are moving into.</p>
+					<form action="part-4.html">
+						<div class="form-group">
+							<div id="address-finder" class="address-finder">
+								<label class="form-label" for="address">Start typing an address</label>
+								<span class="form-hint">For example 10 Royal Crescent</span>
+								<input class="form-control form-control-3-4" id="address" name="address" type="text" aria-invalid="false" value="">
+								<button id="find-button" type="submit" class="button">Find</button>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</article>

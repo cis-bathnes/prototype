@@ -168,5 +168,5 @@ $(function() {
 	});
 
 	// remove all required, for dev only
-	$('input').removeAttr('required');​​​​​
+	// $('input').removeAttr('required');​​​​​
 });

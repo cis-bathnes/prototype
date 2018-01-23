@@ -47,7 +47,7 @@ function addressSearch() {
 }
 
 function buildAddressSelect(addresses) {
-    var $dropdown = $("#address-select");
+    var $dropdown = $("select#address-select");
     $dropdown.empty();
     $dropdown.append($("<option />").val("").text("Please select"));
     $.each(addresses, function() {
@@ -55,6 +55,6 @@ function buildAddressSelect(addresses) {
     });
 }
 function clearAddressSelect(){
-    var $dropdown = $("#address-select");
+    var $dropdown = $("select#address-select");
     $dropdown.empty();
 }

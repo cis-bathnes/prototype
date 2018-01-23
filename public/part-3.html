@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>B&amp;NES change of address prototype</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- BANES Toolkit Includes -->
+	<link rel="stylesheet" href="http://bathnes-test.surge.sh/assets/patterns/styles/screen.css">
+	<!-- govuk_elements JS is dependant on jQuery so we've included it here -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.11.0.min.js"><\/script>');</script>
+	<script src="http://bathnes-test.surge.sh/assets/patterns/scripts/app.js"></script>
+
+	<!-- Prototype specific -->
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.min.css">
+	<script src="assets/js/prototype.min.js"></script>
+	<script src="assets/js/address-search.min.js"></script>
+</head>
+<body>
+	<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+	<div id="skiplink-container"><div><a href="#content" class="skiplink">Skip to main content</a></div></div>
+	<header role="banner" id="global-header">
+		<div class="header-wrapper">
+			<div class="header-global">
+				<div class="header-logo">
+					<a href="" id="logo" class="content">
+						<img src="assets/img/bathnes-logo-colour.png" alt="Bath & North East Somerset Council" />
+					</a>
+				</div>
+				<div class="header-search header-search--desktop">
+					<form id="search" class="site-search" action="" method="">
+						<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+						<input class="form-control" id="search-site" type="text" name="search-site" placeholder="Search bathnes.gov.uk">
+						<input class="button" type="submit" value="Search">
+					</form>
+				</div>
+			</div>
+			<button id="js-header-toggle" class="navigation-trigger" onclick="showHideMenu()">Menu</button>
+		</div>
+		<nav role="navigation" id="navigation-primary" class="navigation-primary">
+			<ul class="navigation-primary-list">
+				<li class="navigation-primary-list__item"><a href="#">Home</a></li>
+				<li class="navigation-primary-list__item"><a href="#">A - Z Services</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Pay for it</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Report it</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Give us feedback</a></li>
+				<li class="navigation-primary-list__item"><a href="#">What's on</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Customer Services</a></li>
+				<li class="navigation-primary-list__search">
+					<div class="header-search header-search--mobile">
+						<form id="search" class="site-search" action="" method="">
+							<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+							<input class="form-control" id="search-site" type="text" name="search-site" placeholder="Search bathnes.gov.uk">
+							<input class="button" type="submit" value="Search">
+						</form>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		<div class="header-marque"></div>
+	</header>
+	<div id="global-header-bar"></div>
+	<div class="wrapper">
+		<main id="content" role="main">
+			<div class="grid-row">
+				<div class="column-full">
+					<h1 class="form-title heading-large">
+						<span class="section-progress">Question 3 of 7</span> Address you are moving to
+					</h1>
+					<p class="lede">Please tell us the address of the place you are moving into.</p>
+					<form action="part-4.html">
+						<fieldset>
+							<legend class="heading-medium">About the property</legend>
+							<div class="form-group">
+								<div id="address-finder" class="address-finder">
+									<label class="form-label" for="address">Address of the property you are moving into</label>
+									<span class="form-hint">Start typing an address, for example 10 Royal Crescent</span>
+									<input class="form-control form-control-3-4" id="address" name="address" type="search" aria-invalid="false" value="" required>
+								</div>
+								<label class="form-label" for="select-box">Select your address</label>
+								<select class="form-control form-control-3-4" size="6" id="address-select" name="address-select" aria-invalid="false" required></select>
+							</div>
+							<div class="form-group">
+								<span class="form-label">Date of purchase, or start of tenency</span>
+								<span class="form-hint">For example, 31 8 2017</span>
+								<div class="form-date">
+									<div class="form-group">
+										<label class="form-label" for="start-day">Day</label>
+										<input class="form-control" id="start-day" name="start-day" type="number" pattern="[0-9]*" min="0" max="31">
+									</div>
+									<div class="form-group form-group-month">
+										<label class="form-label" for="start-month">Month</label>
+										<input class="form-control" id="start-month" name="start-month" type="number" pattern="[0-9]*" min="0" max="12">
+									</div>
+									<div class="form-group form-group-year">
+										<label class="form-label" for="start-year">Year</label>
+										<input class="form-control" id="start-year" name="start-year" type="number" pattern="[0-9]*" min="0" max="2018">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="inline">
+									<span class="form-label">Did you move into this property on that date?</span>
+									<div class="multiple-choice">
+										<input id="moved-in-1" type="radio" name="moved-in" value="Yes">
+										<label for="moved-in-1">Yes</label>
+									</div>
+									<div class="multiple-choice" data-target="actual-start-extra-block">
+										<input id="moved-in-2" type="radio" name="moved-in" value="No">
+										<label for="moved-in-2">No</label>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-border-narrow js-hidden" id="actual-start-extra-block">
+								<div class="form-group">
+									<span class="form-label">Date you moved into the property</span>
+									<span class="form-hint">For example, 31 8 2017</span>
+									<div class="form-date">
+										<div class="form-group">
+											<label class="form-label" for="actual-start-day">Day</label>
+											<input class="form-control" id="actual-start-day" name="actual-start-day" type="number" pattern="[0-9]*" min="0" max="31">
+										</div>
+										<div class="form-group form-group-month">
+											<label class="form-label" for="actual-start-month">Month</label>
+											<input class="form-control" id="actual-start-month" name="actual-start-month" type="number" pattern="[0-9]*" min="0" max="12">
+										</div>
+										<div class="form-group form-group-year">
+											<label class="form-label" for="actual-start-year">Year</label>
+											<input class="form-control" id="actual-start-year" name="actual-start-year" type="number" pattern="[0-9]*" min="0" max="2018">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="multiple-choice">
+										<input id="start-date-unknown" name="start-date-unknown" type="checkbox" value="unknown">
+										<label class="form-label" for="start-date-unknown">or tick this box if no one has moved in and you don't yet know when anyone will move into the property.</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<span class="form-label">When did you furnish this property?</span>
+									<span class="form-hint">For example, 31 8 2017</span>
+									<div class="form-date">
+										<div class="form-group">
+											<label class="form-label" for="furnished-date-day">Day</label>
+											<input class="form-control" id="furnished-date-day" name="furnished-date-day" type="number" pattern="[0-9]*" min="0" max="31">
+										</div>
+										<div class="form-group form-group-month">
+											<label class="form-label" for="furnished-date-month">Month</label>
+											<input class="form-control" id="furnished-date-month" name="furnished-date-month" type="number" pattern="[0-9]*" min="0" max="12">
+										</div>
+										<div class="form-group form-group-year">
+											<label class="form-label" for="furnished-date-year">Year</label>
+											<input class="form-control" id="furnished-date-year" name="furnished-date-year" type="number" pattern="[0-9]*" min="0" max="2018">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="multiple-choice">
+										<input id="furnished-date-unknown" name="furnished-date-unknown" type="checkbox" value="unknown">
+										<label class="form-label" for="furnished-date-unknown">or tick this box if the property isn't furnished and you don't yet know when it will be furnished.</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="inline">
+									<span class="form-label">Do you own or rent the property?</span>
+									<div class="multiple-choice" data-target="ownership-extra-block">
+										<input id="ownership-1" type="radio" name="ownership" value="Own">
+										<label for="ownership-1">Own</label>
+									</div>
+									<div class="multiple-choice" data-target="rental-extra-block">
+										<input id="ownership-2" type="radio" name="ownership" value="Rent">
+										<label for="ownership-2">Rent</label>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-border-narrow js-hidden" id="ownership-extra-block">
+								<span class="form-label">Previous owners details if known</span>
+								<div class="form-group">
+									<div class="form-group">
+					                	<label class="form-label" id="previous-owners-first-name" for="previous-owners-first-name">First name</label>
+										<input class="form-control" name="previous-owners-first-name" type="text" id="previous-owners-first-name">
+									</div>
+					    			<div class="form-group">
+					    				<label class="form-label" id="previous-owners-last-name" for="previous-owners-last-name">Last name</label>
+					    				<input class="form-control" name="previous-owners-last-name" type="text" id="previous-owners-last-name">
+					    			</div>
+					    		</div>
+								<div class="form-group">
+									<span class="form-label">The date they vacated the premises</span>
+									<span class="form-hint">For example, 31 8 2017</span>
+									<div class="form-date">
+										<div class="form-group">
+											<label class="form-label" for="actual-start-day">Day</label>
+											<input class="form-control" id="actual-start-day" name="actual-start-day" type="number" pattern="[0-9]*" min="0" max="31">
+										</div>
+										<div class="form-group form-group-month">
+											<label class="form-label" for="actual-start-month">Month</label>
+											<input class="form-control" id="actual-start-month" name="actual-start-month" type="number" pattern="[0-9]*" min="0" max="12">
+										</div>
+										<div class="form-group form-group-year">
+											<label class="form-label" for="actual-start-year">Year</label>
+											<input class="form-control" id="actual-start-year" name="actual-start-year" type="number" pattern="[0-9]*" min="0" max="2018">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<span class="form-label">Address they moved to</span>
+									<div class="form-group-related">
+										<fieldset>
+											<legend class="form-label">Building and Street</legend>
+											<label for="building-street-f1" class="visually-hidden">Address Line 1</label>
+											<input class="form-control" id="building-street-f1" type="text" name="building-street-f1">
+											<label for="building-street-f2" class="visually-hidden">Address Line 2</label>
+											<input class="form-control" id="building-street-f2" type="text" name="building-street-f2">
+										</fieldset>
+									</div>
+									<div class="form-group-related">
+										<label class="form-label" for="town-city-f1">Town or City</label>
+										<input class="form-control" id="town-city-f1" type="text" name="town-city-f1">
+									</div>
+									<div class="form-group-related">
+										<label class="form-label" for="county-f1">County (optional)</label>
+										<input class="form-control" id="county-f1" type="text" name="county-f1">
+									</div>
+									<div class="form-group-related">
+										<label class="form-label" for="postcode-f1">Postcode</label>
+										<input class="form-control form-control-1-4" id="postcode-f1" type="text" name="postcode-f1">
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-border-narrow js-hidden" id="rental-extra-block">
+								<div class="form-group">
+									<div class="inline">
+										<span class="form-label">Have you signed an individual tenancy agreement or have all the tenants signed a joint tenancy agreement?</span>
+										<div class="multiple-choice">
+											<input id="agreement-type-1" type="radio" name="agreement-type" value="Single">
+											<label for="agreement-type-1">Single</label>
+										</div>
+										<div class="multiple-choice">
+											<input id="agreement-type-2" type="radio" name="agreement-type" value="Joint">
+											<label for="agreement-type-2">Joint</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="inline">
+										<span class="form-label">Is the property let as furnished?</span>
+										<div class="multiple-choice">
+											<input id="furnished-1" type="radio" name="furnished" value="Yes">
+											<label for="furnished-1">Yes</label>
+										</div>
+										<div class="multiple-choice">
+											<input id="furnished-2" type="radio" name="furnished" value="No">
+											<label for="furnished-2">No</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<span class="form-label">Landlord or letting agent details</span>
+									<div class="form-group">
+										<div class="form-group">
+						                	<label class="form-label" id="landlords-first-name" for="landlords-first-name">First name</label>
+											<input class="form-control" name="landlords-first-name" type="text" id="landlords-first-name">
+										</div>
+						    			<div class="form-group">
+						    				<label class="form-label" id="landlords-last-name" for="landlords-last-name">Last name</label>
+						    				<input class="form-control" name="landlords-last-name" type="text" id="landlords-last-name">
+						    			</div>
+						    		</div>
+									<span class="form-label">Landlord or letting agent address</span>
+									<div class="form-group-related">
+										<fieldset>
+											<legend class="form-label">Building and Street</legend>
+											<label for="building-street-f3" class="visually-hidden">Address Line 1</label>
+											<input class="form-control" id="building-street-f3" type="text" name="building-street-f3">
+											<label for="building-street-f4" class="visually-hidden">Address Line 2</label>
+											<input class="form-control" id="building-street-f4" type="text" name="building-street-f4">
+										</fieldset>
+									</div>
+									<div class="form-group-related">
+										<label class="form-label" for="town-city-f2">Town or City</label>
+										<input class="form-control" id="town-city-f2" type="text" name="town-city-f2">
+									</div>
+									<div class="form-group-related">
+										<label class="form-label" for="county-f2">County (optional)</label>
+										<input class="form-control" id="county-f2" type="text" name="county-f2">
+									</div>
+									<div class="form-group-related">
+										<label class="form-label" for="postcode-f2">Postcode</label>
+										<input class="form-control form-control-1-4" id="postcode-f2" type="text" name="postcode-f2">
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend class="heading-medium">Occupiers</legend>
+							<div class="form-group">
+								<span class="form-label-bold">Name(s) of all occupiers over 18</span>
+								<div class="occupier-list" id="occupier-list">
+									<div class="occupier grid-row" id="occupier1">
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier1-title">Title</label>
+											<select class="form-control" name="occupier1-title" id="occupier1-title" disabled>
+												<option value="">Select an Item</option>
+												<option value="Mr">Mr</option>
+												<option value="Mrs">Mrs</option>
+												<option value="Ms">Ms</option>
+												<option value="Miss">Miss</option>
+												<option value="Colonel">Colonel</option>
+												<option value="Councillor">Councillor</option>
+												<option value="Dr">Dr</option>
+												<option value="General">General</option>
+												<option value="Professor">Professor</option>
+												<option value="Reverend">Reverend</option>
+												<option value="Sir">Sir</option>
+												<option value="Baroness">Baroness</option>
+												<option value="Lord">Lord</option>
+												<option value="Lady">Lady</option>
+												<option value="Wing Commander">Wing Commander</option>
+											</select>
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier1-first-name">First name</label>
+											<input class="form-control" id="occupier1-first-name" type="text" name="occupier1-first-name" value="" disabled>
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier1-last-name">Last name</label>
+											<input class="form-control" id="occupier1-last-name" type="text" name="occupier1-last-name" value="" disabled>
+										</div>
+									</div>
+									<div class="occupier grid-row" id="occupier2">
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier2-title">Title</label>
+											<select class="form-control" name="occupier2-title" id="occupier2-title">
+												<option value="">Select an Item</option>
+												<option value="Mr">Mr</option>
+												<option value="Mrs">Mrs</option>
+												<option value="Ms">Ms</option>
+												<option value="Miss">Miss</option>
+												<option value="Colonel">Colonel</option>
+												<option value="Councillor">Councillor</option>
+												<option value="Dr">Dr</option>
+												<option value="General">General</option>
+												<option value="Professor">Professor</option>
+												<option value="Reverend">Reverend</option>
+												<option value="Sir">Sir</option>
+												<option value="Baroness">Baroness</option>
+												<option value="Lord">Lord</option>
+												<option value="Lady">Lady</option>
+												<option value="Wing Commander">Wing Commander</option>
+											</select>
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier2-first-name">First name</label>
+											<input class="form-control" id="occupier2-first-name" type="text" name="occupier2-first-name">
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier2-last-name">Last name</label>
+											<input class="form-control" id="occupier2-last-name" type="text" name="occupier2-last-name">
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier2-relationship">Relationship to you</label>
+											<input class="form-control" id="occupier2-relationship" type="text" name="occupier2-relationship">
+										</div>
+									</div>
+									<div class="occupier grid-row" id="occupier3">
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier3-title">Title</label>
+											<select class="form-control" name="occupier3-title" id="occupier3-title">
+												<option value="">Select an Item</option>
+												<option value="Mr">Mr</option>
+												<option value="Mrs">Mrs</option>
+												<option value="Ms">Ms</option>
+												<option value="Miss">Miss</option>
+												<option value="Colonel">Colonel</option>
+												<option value="Councillor">Councillor</option>
+												<option value="Dr">Dr</option>
+												<option value="General">General</option>
+												<option value="Professor">Professor</option>
+												<option value="Reverend">Reverend</option>
+												<option value="Sir">Sir</option>
+												<option value="Baroness">Baroness</option>
+												<option value="Lord">Lord</option>
+												<option value="Lady">Lady</option>
+												<option value="Wing Commander">Wing Commander</option>
+											</select>
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier3-first-name">First name</label>
+											<input class="form-control" id="occupier3-first-name" type="text" name="occupier3-first-name">
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier3-last-name">Last name</label>
+											<input class="form-control" id="occupier3-last-name" type="text" name="occupier3-last-name">
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier3-relationship">Relationship to you</label>
+											<input class="form-control" id="occupier3-relationship" type="text" name="occupier3-relationship">
+										</div>
+									</div>
+									<div class="occupier grid-row" id="occupier4">
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier4-title">Title</label>
+											<select class="form-control" name="occupier4-title" id="occupier4-title">
+												<option value="">Select an Item</option>
+												<option value="Mr">Mr</option>
+												<option value="Mrs">Mrs</option>
+												<option value="Ms">Ms</option>
+												<option value="Miss">Miss</option>
+												<option value="Colonel">Colonel</option>
+												<option value="Councillor">Councillor</option>
+												<option value="Dr">Dr</option>
+												<option value="General">General</option>
+												<option value="Professor">Professor</option>
+												<option value="Reverend">Reverend</option>
+												<option value="Sir">Sir</option>
+												<option value="Baroness">Baroness</option>
+												<option value="Lord">Lord</option>
+												<option value="Lady">Lady</option>
+												<option value="Wing Commander">Wing Commander</option>
+											</select>
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier4-first-name">First name</label>
+											<input class="form-control" id="occupier4-first-name" type="text" name="occupier4-first-name">
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier4-last-name">Last name</label>
+											<input class="form-control" id="occupier4-last-name" type="text" name="occupier4-last-name">
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="occupier4-relationship">Relationship to you</label>
+											<input class="form-control" id="occupier4-relationship" type="text" name="occupier4-relationship">
+										</div>
+									</div>
+									<button class="button" id="add-occupier" type="button">Add an occupier</button>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="inline">
+									<span class="form-label">Is anyone in the household between the ages of 16 and 17</span>
+									<div class="multiple-choice" data-target="teenagers-extra-block">
+										<input id="teenagers-1" type="radio" name="teenagers" value="Yes">
+										<label for="teenagers-1">Yes</label>
+									</div>
+									<div class="multiple-choice">
+										<input id="teenagers-2" type="radio" name="teenagers" value="No">
+										<label for="teenagers-2">No</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel panel-border-narrow js-hidden" id="teenagers-extra-block">
+								<span class="form-label-bold">Name(s) of all occupiers between the age of 16 and 17</span>
+								<div class="occupier-list" id="teen-occupier-list">
+									<div class="occupier grid-row" id="teen-occupier1">
+										<div class="column-one-quarter">
+											<label class="form-label" for="teen-occupier1-title">Title</label>
+											<select class="form-control" name="teen-occupier1-title" id="teen-occupier1-title">
+												<option value="">Select an Item</option>
+												<option value="Mr">Mr</option>
+												<option value="Mrs">Mrs</option>
+												<option value="Ms">Ms</option>
+												<option value="Miss">Miss</option>
+												<option value="Colonel">Colonel</option>
+												<option value="Councillor">Councillor</option>
+												<option value="Dr">Dr</option>
+												<option value="General">General</option>
+												<option value="Professor">Professor</option>
+												<option value="Reverend">Reverend</option>
+												<option value="Sir">Sir</option>
+												<option value="Baroness">Baroness</option>
+												<option value="Lord">Lord</option>
+												<option value="Lady">Lady</option>
+												<option value="Wing Commander">Wing Commander</option>
+											</select>
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="teen-occupier1-first-name">First name</label>
+											<input class="form-control" id="teen-occupier1-first-name" type="text" name="teen-occupier1-first-name" value="" disabled>
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="teen-occupier1-last-name">Last name</label>
+											<input class="form-control" id="teen-occupier1-last-name" type="text" name="teen-occupier1-last-name" value="" disabled>
+										</div>
+										<div class="column-one-quarter">
+											<label class="form-label" for="teen-occupier1-relationship">Relationship to you</label>
+											<input class="form-control" id="teen-occupier1-relationship" type="text" name="teen-occupier1-relationship">
+										</div>
+									</div>
+									<button class="button" id="add-teen-occupier" type="button">Add an occupier</button>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend class="heading-medium">Discounts</legend>
+							<!-- <div class="form-group">
+								<div class="inline">
+									<span class="form-label">Do you wish to claim council tax or housing benefit at this property?</span>
+									<div class="multiple-choice" data-target="benefits-contact-message">
+										<input id="teenagers-1" type="radio" name="benefits" value="Yes">
+										<label for="benefits-1">Yes</label>
+									</div>
+									<div class="multiple-choice">
+										<input id="benefits-2" type="radio" name="benefits" value="No">
+										<label for="benefits-2">No</label>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-border-narrow js-hidden" id="benefits-contact-message">
+								<p>We'll contact you with more information</p>
+							</div> -->
+							<div class="form-group">
+								<div class="inline">
+									<span class="form-label">If you are the sole occupier - do you wish to claim a 25 percent discount?</span>
+									<div class="multiple-choice">
+										<input id="discount-1" type="radio" name="discount" value="Yes">
+										<label for="discount-1">Yes</label>
+									</div>
+									<div class="multiple-choice">
+										<input id="discount-2" type="radio" name="discount" value="No">
+										<label for="discount-2">No</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="inline">
+									<label class="form-label" for="textarea">There are a range of other discounts and exemptions that may be applied to your council tax bill. <a href="http://www.bathnes.gov.uk/services/council-tax-benefits-and-grants/council-tax/discounts-and-exemptions" rel="external" target="_blank">Details can be found on our website</a> (link opens in new window). If you feel you are eligible for a discount or exemption please state why in the text box below.</label>
+									<textarea class="form-control form-control-3-4" name="textarea" id="textarea" rows="5"></textarea>
+								</div>
+							</div>
+						</fieldset>
+						<button type="submit" class="button">Continue</button>
+					</form>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer class="global-footer">
+		<div class="footer-wrapper">
+			<div class="grid-row">
+				<div class="column-two-thirds">
+					<div class="footer-logo">
+						<img src="assets/img/bathnes-logo-mono.png" alt="Bath & North East Somerset Council" />
+					</div>
+					<ul class="footer-list">
+						<li><a href="#">Accessibility</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Disclaimer &amp; Privacy Policy</a></li>
+						<li><a href="#">Cookies</a></li>
+					</ul>
+				</div>
+				<div class="column-one-thirds">
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

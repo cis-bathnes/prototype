@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>B&amp;NES change of address prototype</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- BANES Toolkit Includes -->
+	<link rel="stylesheet" href="http://bathnes-test.surge.sh/assets/patterns/styles/screen.css">
+	<!-- govuk_elements JS is dependant on jQuery so we've included it here -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.11.0.min.js"><\/script>');</script>
+	<script src="http://bathnes-test.surge.sh/assets/patterns/scripts/app.js"></script>
+
+	<!-- Prototype specific -->
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.min.css">
+	<script src="assets/js/prototype.min.js"></script>
+</head>
+<body>
+	<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+	<div id="skiplink-container"><div><a href="#content" class="skiplink">Skip to main content</a></div></div>
+	<header role="banner" id="global-header">
+		<div class="header-wrapper">
+			<div class="header-global">
+				<div class="header-logo">
+					<a href="" id="logo" class="content">
+						<img src="assets/img/bathnes-logo-colour.png" alt="Bath & North East Somerset Council" />
+					</a>
+				</div>
+				<div class="header-search header-search--desktop">
+					<form id="search" class="site-search" action="" method="">
+						<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+						<input class="form-control" id="search-site" type="text" name="search-site" placeholder="Search bathnes.gov.uk">
+						<input class="button" type="submit" value="Search">
+					</form>
+				</div>
+			</div>
+			<button id="js-header-toggle" class="navigation-trigger" onclick="showHideMenu()">Menu</button>
+		</div>
+		<nav role="navigation" id="navigation-primary" class="navigation-primary">
+			<ul class="navigation-primary-list">
+				<li class="navigation-primary-list__item"><a href="#">Home</a></li>
+				<li class="navigation-primary-list__item"><a href="#">A - Z Services</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Pay for it</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Report it</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Give us feedback</a></li>
+				<li class="navigation-primary-list__item"><a href="#">What's on</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Customer Services</a></li>
+				<li class="navigation-primary-list__search">
+					<div class="header-search header-search--mobile">
+						<form id="search" class="site-search" action="" method="">
+							<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+							<input class="form-control" id="search-site" type="text" name="search-site" placeholder="Search bathnes.gov.uk">
+							<input class="button" type="submit" value="Search">
+						</form>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		<div class="header-marque"></div>
+	</header>
+	<div id="global-header-bar"></div>
+	<div class="wrapper">
+		<main id="content" role="main">
+			<div class="grid-row">
+				<div class="column-full">
+					<h1 class="form-title heading-large">
+						<span class="section-progress">Question 5 of 7</span> Other details
+					</h1>
+					<p class="lede">Please tell us the address of the place you are moving out of.</p>
+					<form action="part-6.html">
+						<fieldset>
+							<legend class="heading-medium">Council Tax Payment Details</legend>
+							<div class="form-group">
+								<div class="inline">
+									<span class="form-label">Do you wish to continue with your current method of payment:</span>
+									<div class="multiple-choice">
+										<input id="payment-method-1" type="radio" name="payment-method" value="Yes" required>
+										<label for="payment-method-1">Yes</label>
+									</div>
+									<div class="multiple-choice" data-target="payment-method-extra-block">
+										<input id="payment-method-2" type="radio" name="payment-method" value="No" required>
+										<label for="payment-method-2">No</label>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-border-narrow js-hidden" id="payment-method-extra-block">
+								<div class="form-group">
+									<div class="inline">
+										<span class="form-label">Please select your required method of payment from the list below:</span>
+										<div class="multiple-choice" data-target="direct-debit-extra-block">
+											<input id="new-payment-method-1" type="radio" name="new-payment-method" value="Direct Debit">
+											<label for="new-payment-method-1">Direct Debit</label>
+										</div>
+										<div class="multiple-choice">
+											<input id="new-payment-method-2" type="radio" name="new-payment-method" value="Internet">
+											<label for="new-payment-method-2">Internet</label>
+										</div>
+										<div class="multiple-choice">
+											<input id="new-payment-method-3" type="radio" name="new-payment-method" value="By phone">
+											<label for="new-payment-method-3">By phone</label>
+										</div>
+										<div class="multiple-choice">
+											<input id="new-payment-method-4" type="radio" name="new-payment-method" value="In person">
+											<label for="new-payment-method-4">In person</label>
+										</div>
+										<div class="multiple-choice">
+											<input id="new-payment-method-5" type="radio" name="new-payment-method" value="By post">
+											<label for="new-payment-method-5">By post</label>
+										</div>
+										<div class="multiple-choice">
+											<input id="new-payment-method-6" type="radio" name="new-payment-method" value="At the bank">
+											<label for="new-payment-method-6">At the bank</label>
+										</div>
+										<div class="multiple-choice">
+											<input id="new-payment-method-7" type="radio" name="new-payment-method" value="Telephone banking">
+											<label for="new-payment-method-7">Telephone banking</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-border-narrow js-hidden" id="direct-debit-extra-block">
+								<div class="form-group">
+				                	<label class="form-label" id="account-name" for="account-name">Account holders name</label>
+									<input class="form-control" name="account-name" type="text" id="account-name">
+								</div>
+								<div class="form-group">
+									<label class="form-label" for="sort-code">Bank Sort code</label>
+									<span class="form-hint">e.g. 101423</span>
+									<input class="form-control form-control-1-4" id="sort-code" name="sort-code" type="number" pattern="[0-9]*" min="0" max="6">
+								</div>
+								<div class="form-group">
+									<label class="form-label" for="account-number">Bank Account Number</label>
+									<input class="form-control form-control-1-4" id="account-number" name="account-number" type="number" pattern="[0-9]*" min="0" max="8">
+								</div>
+								<div class="inline">
+									<span class="form-label">Would you like the debit to be taken from your account on the 1st or 15th of the month?</span>
+									<div class="multiple-choice">
+										<input id="new-payment-date-1" type="radio" name="new-payment-date" value="1st">
+										<label for="new-payment-date-1">1st</label>
+									</div>
+									<div class="multiple-choice">
+										<input id="new-payment-date-2" type="radio" name="new-payment-date" value="15th">
+										<label for="new-payment-date-2">15th</label>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend class="heading-medium">Further information</legend>
+							<div class="form-group">
+								<div class="inline">
+									<span class="form-label">Concessionary Travel. Do you or a member of your household currently have a concessionary travel card issued by Bath and North East Somerset Council?</span>
+									<div class="multiple-choice" data-target="concessionary-travel-extra-block">
+										<input id="concessionary-travel-1" type="radio" name="concessionary-travel" value="Yes" required>
+										<label for="concessionary-travel-1">Yes</label>
+									</div>
+									<div class="multiple-choice">
+										<input id="concessionary-travel-2" type="radio" name="concessionary-travel" value="No" required>
+										<label for="concessionary-travel-2">No</label>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-border-narrow js-hidden" id="concessionary-travel-extra-block">
+								<div class="form-group">
+									<label class="form-label" for="pass-names">Names of people who hold a concessionary travel pass.</label>
+									<textarea class="form-control form-control-3-4" name="pass-names" id="pass-names" rows="5"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<p>You are able to order containers online - <a href="http://www.bathnes.gov.uk/services/bins-rubbish-and-recycling/order-container">http://www.bathnes.gov.uk/services/bins-rubbish-and-recycling/order-container</a></p>
+								<p>If you require an assisted collection - <a href="http://www.bathnes.gov.uk/services/bins-rubbish-and-recycling/recycling-and-rubbish-collections/help-with-putting-your-waste-out">http://www.bathnes.gov.uk/services/bins-rubbish-and-recycling/recycling-and-rubbish-collections/help-with-putting-your-waste-out</a></p>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend class="heading-medium">Other information</legend>
+							<div class="form-group">
+								<label class="form-label" for="other-info">Please let us know any other information that may be relevant:</label>
+								<textarea class="form-control form-control-3-4" name="other-info" id="other-info" rows="5"></textarea>
+							</div>
+						</fieldset>
+						<button type="submit" class="button">Continue</button>
+					</form>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer class="global-footer">
+		<div class="footer-wrapper">
+			<div class="grid-row">
+				<div class="column-two-thirds">
+					<div class="footer-logo">
+						<img src="assets/img/bathnes-logo-mono.png" alt="Bath & North East Somerset Council" />
+					</div>
+					<ul class="footer-list">
+						<li><a href="#">Accessibility</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Disclaimer &amp; Privacy Policy</a></li>
+						<li><a href="#">Cookies</a></li>
+					</ul>
+				</div>
+				<div class="column-one-thirds">
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

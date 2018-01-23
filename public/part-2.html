@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>B&amp;NES change of address prototype</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- BANES Toolkit Includes -->
+	<link rel="stylesheet" href="http://bathnes-test.surge.sh/assets/patterns/styles/screen.css">
+	<!-- govuk_elements JS is dependant on jQuery so we've included it here -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.11.0.min.js"><\/script>');</script>
+	<script src="http://bathnes-test.surge.sh/assets/patterns/scripts/app.js"></script>
+
+	<!-- Prototype specific -->
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.min.css">
+	<script src="assets/js/prototype.min.js"></script>
+</head>
+<body>
+	<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+	<div id="skiplink-container"><div><a href="#content" class="skiplink">Skip to main content</a></div></div>
+	<header role="banner" id="global-header">
+		<div class="header-wrapper">
+			<div class="header-global">
+				<div class="header-logo">
+					<a href="" id="logo" class="content">
+						<img src="assets/img/bathnes-logo-colour.png" alt="Bath & North East Somerset Council" />
+					</a>
+				</div>
+				<div class="header-search header-search--desktop">
+					<form id="search" class="site-search" action="" method="">
+						<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+						<input class="form-control" id="search-site" type="text" name="search-site" placeholder="Search bathnes.gov.uk">
+						<input class="button" type="submit" value="Search">
+					</form>
+				</div>
+			</div>
+			<button id="js-header-toggle" class="navigation-trigger" onclick="showHideMenu()">Menu</button>
+		</div>
+		<nav role="navigation" id="navigation-primary" class="navigation-primary">
+			<ul class="navigation-primary-list">
+				<li class="navigation-primary-list__item"><a href="#">Home</a></li>
+				<li class="navigation-primary-list__item"><a href="#">A - Z Services</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Pay for it</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Report it</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Give us feedback</a></li>
+				<li class="navigation-primary-list__item"><a href="#">What's on</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Customer Services</a></li>
+				<li class="navigation-primary-list__search">
+					<div class="header-search header-search--mobile">
+						<form id="search" class="site-search" action="" method="">
+							<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+							<input class="form-control" id="search-site" type="text" name="search-site" placeholder="Search bathnes.gov.uk">
+							<input class="button" type="submit" value="Search">
+						</form>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		<div class="header-marque"></div>
+	</header>
+	<div id="global-header-bar"></div>
+	<div class="wrapper">
+		<main id="content" role="main">
+			<div class="grid-row">
+				<div class="column-full">
+					<h1 class="form-title heading-large">
+						<span class="section-progress">Question 2 of 7</span> Contact details
+					</h1>
+					<p class="lede">Please tell us your name, telephone number and email address.</p>
+				</div>
+				<div class="column-full">
+					<form action="part-3.html">
+						<div class="form-group">
+							<label class="form-label" id="title" for="title">Title</label>
+							<select class="form-control" name="title" id="title" required>
+								<option value="">Select an Item</option>
+								<option value="Mr">Mr</option>
+								<option value="Mrs">Mrs</option>
+								<option value="Ms">Ms</option>
+								<option value="Miss">Miss</option>
+								<option value="Colonel">Colonel</option>
+								<option value="Councillor">Councillor</option>
+								<option value="Dr">Dr</option>
+								<option value="General">General</option>
+								<option value="Professor">Professor</option>
+								<option value="Reverend">Reverend</option>
+								<option value="Sir">Sir</option>
+								<option value="Baroness">Baroness</option>
+								<option value="Lord">Lord</option>
+								<option value="Lady">Lady</option>
+								<option value="Wing Commander">Wing Commander</option>
+							</select>
+						</div>
+		                <div class="form-group">
+		                	<label class="form-label" id="first-name" for="first-name">First name</label>
+							<input class="form-control" name="first-name" type="text" id="first-name" required>
+						</div>
+		    			<div class="form-group">
+		    				<label class="form-label" id="last-name" for="last-name">Last name</label>
+		    				<input class="form-control" name="last-name" type="text" id="last-name" required>
+		    			</div>
+		    			<div class="form-group">
+		    				<label class="form-label" id="telephone" for="telephone">Telephone</label>
+		    				<input class="form-control" name="telephone" type="text" id="telephone" required>
+		    			</div>
+		    			<div class="form-group">
+		    				<label class="form-label" id="email-address" for="email-address">Email address</label>
+		    				<input class="form-control" name="email-address" type="email" id="email-address" required>
+		    			</div>
+		    			<div class="form-group">
+		    				<p>Are you:</p>
+							<div class="multiple-choice">
+								<input id="radio-1" type="radio" name="about-you" value="person" required>
+								<label for="radio-1">The person moving</label>
+							</div>
+							<div class="multiple-choice">
+								<input id="radio-2" type="radio" name="about-you" value="contact" required>
+								<label for="radio-2">A contact for the person moving</label>
+							</div>
+							<p class="form-block">or</p>
+							<div class="multiple-choice">
+								<input id="radio-3" type="radio" name="about-you" value="letting-agent" required>
+								<label for="radio-3">A letting agent</label>
+							</div>
+						</div>
+		    			<button type="submit" class="button">Continue</button>
+		    		</form>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer class="global-footer">
+		<div class="footer-wrapper">
+			<div class="grid-row">
+				<div class="column-two-thirds">
+					<div class="footer-logo">
+						<img src="assets/img/bathnes-logo-mono.png" alt="Bath & North East Somerset Council" />
+					</div>
+					<ul class="footer-list">
+						<li><a href="#">Accessibility</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Disclaimer &amp; Privacy Policy</a></li>
+						<li><a href="#">Cookies</a></li>
+					</ul>
+				</div>
+				<div class="column-one-thirds">
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

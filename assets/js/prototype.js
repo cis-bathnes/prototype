@@ -22,6 +22,10 @@ $(function() {
 		}
 	}
 
+	$('#js-header-toggle').click(function(event) {
+		showHideMenu();
+	});
+
 	function getUrlParameter(sParam) {
 		var sPageURL = decodeURIComponent(window.location.search.substring(1)),
 			sURLVariables = sPageURL.split('&'),
@@ -163,4 +167,6 @@ $(function() {
 		</div>').insertBefore(this);
 	});
 
+	// remove all required, for dev only
+	$('input').removeAttr('required');​​​​​
 });

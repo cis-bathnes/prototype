@@ -14,6 +14,7 @@
 	<!-- Prototype specific -->
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.min.css">
 	<script src="assets/js/prototype.min.js"></script>
+	<script src="assets/js/address-search.min.js"></script>
 </head>
 <body>
 	<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
@@ -60,7 +61,7 @@
 	</header>
 	<div id="global-header-bar"></div>
 	<div class="wrapper">
-		<article id="content">
+		<main id="content" role="main">
 			<div class="grid-row">
 				<div class="column-full">
 					<h1 class="form-title heading-large">
@@ -75,9 +76,14 @@
 								<div id="address-finder" class="address-finder">
 									<label class="form-label" for="address">Address of the property you are moving into</label>
 									<span class="form-hint">Start typing an address, for example 10 Royal Crescent</span>
-									<input class="form-control form-control-3-4" id="address" name="address" type="text" aria-invalid="false" value="" required>
-									<button id="find-button" type="submit" class="button">Find</button>
+									<input class="form-control form-control-3-4" id="address" name="address" type="search" aria-invalid="false" value="" required>
+									<!-- <button id="find-button" type="submit" class="button">Find</button> -->
 								</div>
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="select-box">Select your address</label>
+								<select class="form-control" id="address-select" name="address-select" aria-invalid="false" required>
+								</select>
 							</div>
 							<div class="form-group">
 								<span class="form-label">Date of purchase, or start of tenency</span>
@@ -535,7 +541,7 @@
 					</form>
 				</div>
 			</div>
-		</article>
+		</main>
 	</div>
 	<footer class="global-footer">
 		<div class="footer-wrapper">

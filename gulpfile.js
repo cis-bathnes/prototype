@@ -33,7 +33,6 @@ gulp.task('sass', function () {
 
 gulp.task('scripts', function() {
 	return gulp.src('./assets/js/*.js')
-		.pipe(concat('prototype.js'))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(uglify())
 		.pipe(gulp.dest('./public/assets/js'))

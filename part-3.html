@@ -35,7 +35,7 @@
 					</form>
 				</div>
 			</div>
-			<button id="js-header-toggle" class="navigation-trigger" onclick="showHideMenu()">Menu</button>
+			<button id="js-header-toggle" class="navigation-trigger">Menu</button>
 		</div>
 		<nav role="navigation" id="navigation-primary" class="navigation-primary">
 			<ul class="navigation-primary-list">
@@ -69,6 +69,14 @@
 					</h1>
 					<p class="lede">Please tell us the address of the place you are moving into.</p>
 					<form action="part-4.html">
+						<!-- Hidden fields to bring the data with us -->
+						<!-- part 2 -->
+						<input type="hidden" name="title" id="title" value="">
+						<input type="hidden" name="first-name" id="first-name" value="">
+						<input type="hidden" name="last-name" id="last-name" value="">
+						<input type="hidden" name="telephone" id="telephone" value="">
+						<input type="hidden" name="email-address" id="email-address" value="">
+						<input type="hidden" name="about-you" id="about-you" value="">
 						<fieldset>
 							<legend class="heading-medium">About the property</legend>
 							<div class="form-group">
@@ -77,11 +85,12 @@
 									<span class="form-hint">Start typing an address, for example 10 Royal Crescent</span>
 									<input class="form-control form-control-3-4" id="address" name="address" type="search" aria-invalid="false" value="" required>
 								</div>
-								<label class="form-label" for="select-box">Select your address</label>
+								<label class="form-label" for="select-box">Select the address</label>
 								<select class="form-control form-control-3-4" size="6" id="address-select" name="address-select" aria-invalid="false" required></select>
+								<div id="address-result"></div>
 							</div>
 							<div class="form-group">
-								<span class="form-label">Date of purchase, or start of tenency</span>
+								<span class="form-label">Date of purchase, or start of tenancy</span>
 								<span class="form-hint">For example, 31 8 2017</span>
 								<div class="form-date">
 									<div class="form-group">

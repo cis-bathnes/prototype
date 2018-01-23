@@ -12,7 +12,7 @@ $(document).ready(function () {
     $('#address').on('keyup search', function () {
         addressSearch();
     });
-    $('#address-select').on('change', function () {
+    $('select#address-select').on('change', function () {
         var formattedAddr = '';
         var addr = $(this).val();
         if (addr != '') {
@@ -61,14 +61,16 @@ function addressSearch() {
 
 function buildAddressSelect(addresses) {
     clearAddressSelect();
-    var $dropdown = $("#address-select");
+    var $dropdown = $("select#address-select");
+    // $dropdown.empty();
     $dropdown.append($("<option />").val("").text("Please select"));
     $.each(addresses, function () {
         $dropdown.append($("<option />").val(this.id.split('_')[4]).text(this.address));
     });
 }
-function clearAddressSelect() {
-    var $dropdown = $("#address-select");
+
+function clearAddressSelect(){
+    var $dropdown = $("select#address-select");
     $dropdown.empty();
     $('#address-result').text('');
 }

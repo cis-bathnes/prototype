@@ -69,16 +69,34 @@
 					</h1>
 					<p class="lede">Please tell us the address of the place you are moving out of.</p>
 					<form action="part-5.html">
+						<!-- Hidden fields to bring the data with us -->
+						<!-- part2 -->
+						<input type="hidden" name="title" id="title" value="">
+						<input type="hidden" name="first-name" id="first-name" value="">
+						<input type="hidden" name="last-name" id="last-name" value="">
+						<input type="hidden" name="telephone" id="telephone" value="">
+						<input type="hidden" name="email-address" id="email-address" value="">
+						<input type="hidden" name="about-you" id="about-you" value="">
+						<!-- part3 -->
+						<input type="hidden" name="address-select" id="address-select" value="">
+						<input type="hidden" name="start-day" id="start-day" value="">
+						<input type="hidden" name="start-month" id="start-month" value="">
+						<input type="hidden" name="start-year" id="start-year" value="">
+						<input type="hidden" name="moved-in" id="moved-in" value="">
+						<input type="hidden" name="ownership" id="ownership" value="">
+						<input type="hidden" name="discount" id="discount" value="">
+						<input type="hidden" name="textarea" id="textarea" value="">
 						<fieldset>
 							<legend class="heading-medium">About the property</legend>
 							<div class="form-group">
 								<div id="address-finder" class="address-finder">
-									<label class="form-label" for="address">Address of the property you are moving into</label>
+									<label class="form-label" for="address">Address of the property you are moving out of</label>
 									<span class="form-hint">Start typing an address, for example 10 Royal Crescent</span>
-									<input class="form-control form-control-3-4" id="address" name="address" type="search" aria-invalid="false" value="" required>
+									<input class="form-control form-control-3-4" id="address" name="address-leaving" type="search" aria-invalid="false" value="" required>
 								</div>
 								<label class="form-label" for="select-box">and select your address</label>
 								<select class="form-control form-control-3-4" size="6" id="address-select" name="address-select" aria-invalid="false" required></select>
+								<div id="address-result"></div>
 							</div>
 							<div class="form-group">
 								<span class="form-label">The date the property was sold or the tenancy ended</span>
@@ -165,11 +183,11 @@
 								<div class="inline">
 									<span class="form-label">Do you own or rent the property?</span>
 									<div class="multiple-choice" data-target="ownership-extra-block">
-										<input id="ownership-1" type="radio" name="ownership" value="Own" required>
+										<input id="ownership-1" type="radio" name="ownership-leaving" value="Own" required>
 										<label for="ownership-1">Own</label>
 									</div>
 									<div class="multiple-choice" data-target="rental-extra-block">
-										<input id="ownership-2" type="radio" name="ownership" value="Rent" required>
+										<input id="ownership-2" type="radio" name="ownership-leaving" value="Rent" required>
 										<label for="ownership-2">Rent</label>
 									</div>
 								</div>
@@ -191,23 +209,23 @@
 									<div class="form-group-related">
 										<fieldset>
 											<legend class="form-label">Building and Street</legend>
-											<label for="building-street-f1" class="visually-hidden">Address Line 1</label>
-											<input class="form-control" id="building-street-f1" type="text" name="building-street-f1">
-											<label for="building-street-f2" class="visually-hidden">Address Line 2</label>
-											<input class="form-control" id="building-street-f2" type="text" name="building-street-f2">
+											<label for="building-street-f1-leaving" class="visually-hidden">Address Line 1</label>
+											<input class="form-control" id="building-street-f1-leaving" type="text" name="building-street-f1-leaving">
+											<label for="building-street-f2-leaving" class="visually-hidden">Address Line 2</label>
+											<input class="form-control" id="building-street-f2-leaving" type="text" name="building-street-f2-leaving">
 										</fieldset>
 									</div>
 									<div class="form-group-related">
-										<label class="form-label" for="town-city-f1">Town or City</label>
-										<input class="form-control" id="town-city-f1" type="text" name="town-city-f1">
+										<label class="form-label" for="town-city-f1-leaving">Town or City</label>
+										<input class="form-control" id="town-city-f1-leaving" type="text" name="town-city-f1-leaving">
 									</div>
 									<div class="form-group-related">
-										<label class="form-label" for="county-f1">County (optional)</label>
-										<input class="form-control" id="county-f1" type="text" name="county-f1">
+										<label class="form-label" for="county-f1-leaving">County (optional)</label>
+										<input class="form-control" id="county-f1-leaving" type="text" name="county-f1-leaving">
 									</div>
 									<div class="form-group-related">
-										<label class="form-label" for="postcode-f1">Postcode</label>
-										<input class="form-control form-control-1-4" id="postcode-f1" type="text" name="postcode-f1">
+										<label class="form-label" for="postcode-f1-leaving">Postcode</label>
+										<input class="form-control form-control-1-4" id="postcode-f1-leaving" type="text" name="postcode-f1-leaving">
 									</div>
 								</div>
 							</div>
@@ -216,35 +234,35 @@
 									<span class="form-label">Landlord or letting agent details</span>
 									<div class="form-group">
 										<div class="form-group">
-						                	<label class="form-label" id="landlords-first-name" for="landlords-first-name">First name</label>
-											<input class="form-control" name="landlords-first-name" type="text" id="landlords-first-name">
+						                	<label class="form-label" id="landlords-first-name-leaving" for="landlords-first-name-leaving">First name</label>
+											<input class="form-control" name="landlords-first-name-leaving" type="text" id="landlords-first-name-leaving">
 										</div>
 						    			<div class="form-group">
-						    				<label class="form-label" id="landlords-last-name" for="landlords-last-name">Last name</label>
-						    				<input class="form-control" name="landlords-last-name" type="text" id="landlords-last-name">
+						    				<label class="form-label" id="landlords-last-name-leaving" for="landlords-last-name-leaving">Last name</label>
+						    				<input class="form-control" name="landlords-last-name-leaving" type="text" id="landlords-last-name-leaving">
 						    			</div>
 						    		</div>
 									<span class="form-label">Landlord or letting agent address</span>
 									<div class="form-group-related">
 										<fieldset>
 											<legend class="form-label">Building and Street</legend>
-											<label for="building-street-f3" class="visually-hidden">Address Line 1</label>
-											<input class="form-control" id="building-street-f3" type="text" name="building-street-f3">
-											<label for="building-street-f4" class="visually-hidden">Address Line 2</label>
-											<input class="form-control" id="building-street-f4" type="text" name="building-street-f4">
+											<label for="building-street-f3-leaving" class="visually-hidden">Address Line 1</label>
+											<input class="form-control" id="building-street-f3-leaving" type="text" name="building-street-f3-leaving">
+											<label for="building-street-f4-leaving" class="visually-hidden">Address Line 2</label>
+											<input class="form-control" id="building-street-f4-leaving" type="text" name="building-street-f4-leaving">
 										</fieldset>
 									</div>
 									<div class="form-group-related">
-										<label class="form-label" for="town-city-f2">Town or City</label>
-										<input class="form-control" id="town-city-f2" type="text" name="town-city-f2">
+										<label class="form-label" for="town-city-f2-leaving">Town or City</label>
+										<input class="form-control" id="town-city-f2-leaving" type="text" name="town-city-f2-leaving">
 									</div>
 									<div class="form-group-related">
-										<label class="form-label" for="county-f2">County (optional)</label>
-										<input class="form-control" id="county-f2" type="text" name="county-f2">
+										<label class="form-label" for="county-f2-leaving">County (optional)</label>
+										<input class="form-control" id="county-f2-leaving" type="text" name="county-f2-leaving">
 									</div>
 									<div class="form-group-related">
-										<label class="form-label" for="postcode-f2">Postcode</label>
-										<input class="form-control form-control-1-4" id="postcode-f2" type="text" name="postcode-f2">
+										<label class="form-label" for="postcode-f2-leaving">Postcode</label>
+										<input class="form-control form-control-1-4" id="postcode-f2-leaving" type="text" name="postcode-f2-leaving">
 									</div>
 								</div>
 							</div>
@@ -255,16 +273,16 @@
 								<div class="inline">
 									<span class="form-label">Are all occupiers vacating?</span>
 									<div class="multiple-choice">
-										<input id="occupiers-vacating-1" type="radio" name="occupiers-vacating" value="Yes" required>
-										<label for="occupiers-vacating-1">Yes</label>
+										<input id="occupiers-leaving-1" type="radio" name="occupiers-leaving" value="Yes" required>
+										<label for="occupiers-leaving-1">Yes</label>
 									</div>
-									<div class="multiple-choice" data-target="occupiers-vacating-extra-block">
-										<input id="occupiers-vacating-2" type="radio" name="occupiers-vacating" value="No" required>
-										<label for="occupiers-vacating-2">No</label>
+									<div class="multiple-choice" data-target="occupiers-leaving-extra-block">
+										<input id="occupiers-leaving-2" type="radio" name="occupiers-leaving" value="No" required>
+										<label for="occupiers-leaving-2">No</label>
 									</div>
 								</div>
 							</div>
-							<div class="panel panel-border-narrow js-hidden" id="occupiers-vacating-extra-block">
+							<div class="panel panel-border-narrow js-hidden" id="occupiers-leaving-extra-block">
 								<span class="form-label-bold">Name(s) of all occupiers between the age of 16 and 17</span>
 								<div class="occupier-list" id="rental-occupier-list">
 									<div class="occupier grid-row" id="rental-occupier1">

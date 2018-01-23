@@ -188,7 +188,7 @@ $(function() {
 	$('#email-address-check').text(email_address);
 	var about_you = getUrlParameter('about-you');
 	$('#about-you').val(about_you);
-	$('#about-you-check').text(about_you);
+	$('#about-you-check').text(about_you.replace(/\+/g,' '));
 	var address_select = getUrlParameter('address-select');
 	$('#address-select').val(address_select);
 	$('#address-select-check').text(address_select.replace(/\+/g,' '));
@@ -239,7 +239,7 @@ $(function() {
 	$('#payment-method-check').text(payment_method);
 	var new_payment_method = getUrlParameter('new-payment-method');
 	$('#new-payment-method').val(new_payment_method);
-	$('#new-payment-method-check').text(new_payment_method);
+	$('#new-payment-method-check').text(new_payment_method.replace(/\+/g,' '));
 	var account_name = getUrlParameter('account-name');
 	$('#account-name').val(account_name);
 	$('#account-name-check').text(account_name);

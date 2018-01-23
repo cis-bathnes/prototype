@@ -35,7 +35,7 @@
 					</form>
 				</div>
 			</div>
-			<button id="js-header-toggle" class="navigation-trigger" onclick="showHideMenu()">Menu</button>
+			<button id="js-header-toggle" class="navigation-trigger">Menu</button>
 		</div>
 		<nav role="navigation" id="navigation-primary" class="navigation-primary">
 			<ul class="navigation-primary-list">
@@ -69,6 +69,13 @@
 					</h1>
 					<p class="lede">Please tell us the address of the place you are moving into.</p>
 					<form action="part-4.html">
+						<!-- Hidden fields to bring the data with us -->
+						<input type="hidden" name="title" id="title" value="">
+						<input type="hidden" name="first-name" id="first-name" value="">
+						<input type="hidden" name="last-name" id="last-name" value="">
+						<input type="hidden" name="telephone" id="telephone" value="">
+						<input type="hidden" name="email-address" id="email-address" value="">
+						<input type="hidden" name="about-you" id="about-you" value="">
 						<fieldset>
 							<legend class="heading-medium">About the property</legend>
 							<div class="form-group">

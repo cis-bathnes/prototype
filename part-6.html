@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>B&amp;NES change of address prototype</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- BANES Toolkit Includes -->
+	<link rel="stylesheet" href="http://bathnes-test.surge.sh/assets/patterns/styles/screen.css">
+	<!-- govuk_elements JS is dependant on jQuery so we've included it here -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.11.0.min.js"><\/script>');</script>
+	<script src="http://bathnes-test.surge.sh/assets/patterns/scripts/app.js"></script>
+
+	<!-- Prototype specific -->
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.min.css">
+	<script src="assets/js/prototype.min.js"></script>
+</head>
+<body>
+	<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+	<div id="skiplink-container"><div><a href="#content" class="skiplink">Skip to main content</a></div></div>
+	<header role="banner" id="global-header">
+		<div class="header-wrapper">
+			<div class="header-global">
+				<div class="header-logo">
+					<a href="" id="logo" class="content">
+						<img src="assets/img/bathnes-logo-colour.png" alt="Bath & North East Somerset Council" />
+					</a>
+				</div>
+				<div class="header-search header-search--desktop">
+					<form id="search" class="site-search" action="" method="">
+						<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+						<input class="form-control" id="search-site" type="text" name="search-site" placeholder="Search bathnes.gov.uk">
+						<input class="button" type="submit" value="Search">
+					</form>
+				</div>
+			</div>
+			<button id="js-header-toggle" class="navigation-trigger" onclick="showHideMenu()">Menu</button>
+		</div>
+		<nav role="navigation" id="navigation-primary" class="navigation-primary">
+			<ul class="navigation-primary-list">
+				<li class="navigation-primary-list__item"><a href="#">Home</a></li>
+				<li class="navigation-primary-list__item"><a href="#">A - Z Services</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Pay for it</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Report it</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Give us feedback</a></li>
+				<li class="navigation-primary-list__item"><a href="#">What's on</a></li>
+				<li class="navigation-primary-list__item"><a href="#">Customer Services</a></li>
+				<li class="navigation-primary-list__search">
+					<div class="header-search header-search--mobile">
+						<form id="search" class="site-search" action="" method="">
+							<label class="form-label visually-hidden" for="search-site">Search across the site</label>
+							<input class="form-control" id="search-site" type="text" name="search-site" placeholder="Search bathnes.gov.uk">
+							<input class="button" type="submit" value="Search">
+						</form>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		<div class="header-marque"></div>
+	</header>
+	<div id="global-header-bar"></div>
+	<div class="wrapper">
+		<article id="content">
+			<div class="grid-row">
+				<div class="column-full">
+					<h1 class="form-title heading-large">
+						<span class="section-progress">Question 6 of 7</span> Review
+					</h1>
+					<p class="lede">Please tell us the address of the place you are moving out of.</p>
+					<form action="part-6.html">
+						<fieldset>
+							<legend>Contact Information</legend>
+							<p><strong>Name:</strong> Mr Ben Coleman (I am moving home)</p>
+							<p><strong>Telephone:</strong> 01179428608</p>
+							<p><strong>Email Address:</strong> ben@bencoleman.org</p>
+						</fieldset>
+						<fieldset>
+							<legend>About the property you are moving into</legend>
+							<p><strong>Address:</strong>17 ROYAL CRESCENT CITY CENTRE BATH BA1 2LT</p>
+							<p><strong>The date you purchased the property or your tenancy started:</strong> 1/1/2018</p>
+							<p>and this is also the date I moved into the property</p>
+							<p><strong>Do you own or rent this property?:</strong> Own</p>
+							<p><strong>Name(s) of all occupiers over 18:</strong> Mr Ben Coleman,</p>
+							<p><strong>Is anyone in the household between the ages of 16 and 17:</strong> No</p>
+						</fieldset>
+						<fieldset>
+							<legend>About the property you are leaving</legend>
+							<p><strong>Address:</strong> 18 ROYAL CRESCENT CITY CENTRE BATH BA1 2LT</p>
+							<p><strong>The date you sold the property or the tenancy ended:</strong> 1/1/2018</p>
+							<p>and this is also the date I moved out of property</p>
+							<p><strong>Do you own or rent this property?:</strong> Own</p>
+							<p><strong>New owner's name:</strong></p>
+							<p><strong>New owner's address:</strong></p>
+							<p><strong>Are all occupiers vacating?:</strong>Yes</p>
+							<p><strong>Are you in receipt of council tax or housing benefit at this property?:</strong>Yes</p>
+						</fieldset>
+						<fieldset>
+							<legend>Discounts and Benefits</legend>
+							<p><strong>Do you wish to claim council tax or housing benefit at this property?:</strong> No</p>
+							<p><strong>If you are the sole occupier do you want to claim a 25% discount:</strong>No</p>
+							<p><strong>Method of payment for council tax:</strong> Internet</p>
+							<p>For information on how to pay your council tax bill please see our <a href="#">website</a>.</p>
+						</fieldset>
+						<button type="submit" class="button">Continue</button>
+					</form>
+				</div>
+			</div>
+		</article>
+	</div>
+	<footer class="global-footer">
+		<div class="footer-wrapper">
+			<div class="grid-row">
+				<div class="column-two-thirds">
+					<div class="footer-logo">
+						<img src="assets/img/bathnes-logo-mono.png" alt="Bath & North East Somerset Council" />
+					</div>
+					<ul class="footer-list">
+						<li><a href="#">Accessibility</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Disclaimer &amp; Privacy Policy</a></li>
+						<li><a href="#">Cookies</a></li>
+					</ul>
+				</div>
+				<div class="column-one-thirds">
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

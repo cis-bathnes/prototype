@@ -193,7 +193,7 @@ $(function() {
 	$('#address-select').val(address_select);
 	console.log('address_select: ' + address_select);
 	if(address_select != undefined ) {
-		$('#address-select-check').text(address_select.replace(/\+/g,' '));
+		$('#address-select-check').text(address_select.replace(/\+/g,' ').replace(/\|/g, ' '));
 	}
 	var start_day = getUrlParameter('start-day');
 	$('#start-day').val(start_day);
@@ -219,7 +219,7 @@ $(function() {
 	var address_leaving_select = getUrlParameter('address-leaving-select');
 	$('#address-leaving-select').val(address_leaving_select);
 	if(address_leaving_select != undefined ) {
-		$('#address-leaving-select-check').text(address_leaving_select.replace(/\+/g,' '));
+		$('#address-leaving-select-check').text(address_leaving_select.replace(/\+/g,' ').replace(/\|/g, ' '));
 	}
 	var end_day = getUrlParameter('end-day');
 	$('#end-day').val(end_day);
